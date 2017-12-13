@@ -1,0 +1,10 @@
+Package: ophidian-units
+Version: 2.3.1-1
+Section: utils
+Priority: extra
+Architecture: amd64
+Depends: libstdc++6, libc6
+Source: units
+Homepage: https://gitlab.com/eclufsc/units
+Maintainer: Bernardo Ferrari Mendonca <bernardo.mferrari@gmail.com>
+Description: A compile-time, header-only, dimensional analysis and unit conversion library built on c++14 with no dependencies.
