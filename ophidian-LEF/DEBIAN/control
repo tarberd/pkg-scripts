@@ -1,0 +1,10 @@
+Package: ophidian-LEF
+Version: 5.8-1
+Section: utils
+Priority: extra
+Architecture: amd64
+Depends: libstdc++6, libc6
+Source: LEF
+Homepage: https://projects.si2.org/openeda.si2.org/projects/lefdefnew/
+Maintainer: Bernardo Ferrari Mendonca <bernardo.mferrari@gmail.com>
+Description: Cadence's LEF version 5.8 parser toolkit including C++ and C APIs

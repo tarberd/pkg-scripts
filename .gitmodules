@@ -1,3 +1,6 @@
 [submodule "ophidian-DEF/DEF"]
 	path = ophidian-DEF/DEF
 	url = https://gitlab.com/eclufsc/DEF.git
+[submodule "ophidian-LEF/LEF"]
+	path = ophidian-LEF/LEF
+	url = https://gitlab.com/eclufsc/LEF.git
