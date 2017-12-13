@@ -1,0 +1,10 @@
+Package: ophidian-verilog-parser
+Version: 0.2.31
+Section: utils
+Priority: extra
+Architecture: amd64
+Depends: libstdc++6, libc6
+Source: DEF
+Homepage: https://gitlab.com/eclufsc/verilog-parser
+Maintainer: Bernardo Ferrari Mendonca <bernardo.mferrari@gmail.com>
+Description: A Flex/Bison Parser for the IEEE 1364-2001 Verilog Standard.
