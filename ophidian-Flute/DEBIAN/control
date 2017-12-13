@@ -1,0 +1,12 @@
+Package: ophidian-Flute
+Version: 1.0-1
+Section: utils
+Priority: extra
+Architecture: amd64
+Depends: libstdc++6, libc6
+Source: Flute
+Homepage: https://gitlab.com/eclufsc/Flute
+Maintainer: Bernardo Ferrari Mendonca <bernardo.mferrari@gmail.com>
+Description: A rectilinear Steiner minimal tree and wirelength 
+ estimation algorithm described in the ICCAD 04 and ISPD 05 papers 
+ with some improvements.
