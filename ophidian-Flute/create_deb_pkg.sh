@@ -1,5 +1,5 @@
 PKGNAME="ophidian-Flute"
-PKGVERSION="1.0-1"
+PKGVERSION="1.0-2"
 
 ROOT=$(pwd)
 SRCROOT=$ROOT/Flute
