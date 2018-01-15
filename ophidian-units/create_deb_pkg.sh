@@ -1,5 +1,5 @@
 PKGNAME="ophidian-units"
-PKGVERSION="2.3.1-1"
+PKGVERSION="2.3-2"
 
 ROOT=$(pwd)
 SRCROOT=$ROOT/units
