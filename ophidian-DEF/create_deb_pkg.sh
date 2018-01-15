@@ -1,22 +1,31 @@
 PKGNAME="ophidian-DEF"
-PKGVERSION="5.8-2"
+PKGVERSION="5.8-4"
 
 ROOT=$(pwd)
-DEFROOT=$ROOT/DEF
+SRCROOT=$ROOT/DEF
 PKGROOT=$ROOT/$PKGNAME\_$PKGVERSION
 
-cd $DEFROOT
+LICENCE_DIR=$PKGROOT/usr/share/doc/DEF
+
+cd $SRCROOT
 git submodule update --init
 make clean
 make CXXFLAGS="-fPIC" all
 
 mkdir $PKGROOT
+mkdir $PKGROOT/DEBIAN
 mkdir $PKGROOT/usr
-cp -r $DEFROOT/bin $PKGROOT/usr
-cp -r $DEFROOT/lib $PKGROOT/usr
-cp -r $DEFROOT/include $PKGROOT/usr
+mkdir $PKGROOT/usr/bin
+mkdir $PKGROOT/usr/lib
+mkdir $PKGROOT/usr/include
 
-cp -r $ROOT/DEBIAN $PKGROOT
+install -D -o root -g root -m 644 $ROOT/DEBIAN/control $PKGROOT/DEBIAN
+
+#install -D -o root -g root -m 644 $SRCROOT/bin/* $PKGROOT/usr/bin
+install -D -o root -g root -m 644 $SRCROOT/lib/* $PKGROOT/usr/lib
+install -D -o root -g root -m 644 $SRCROOT/include/* $PKGROOT/usr/include
+
+install -D -o root -g root -m 644 $SRCROOT/LICENSE.TXT $LICENCE_DIR/copyright
 
 dpkg-deb --build $PKGROOT
 
