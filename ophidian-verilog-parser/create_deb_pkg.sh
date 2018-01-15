@@ -1,5 +1,5 @@
 PKGNAME="ophidian-verilog-parser"
-PKGVERSION="0.2.31-1"
+PKGVERSION="0.2-32"
 
 ROOT=$(pwd)
 SRCROOT=$ROOT/verilog-parser

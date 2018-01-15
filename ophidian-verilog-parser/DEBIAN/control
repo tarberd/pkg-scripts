@@ -1,5 +1,5 @@
 Package: ophidian-verilog-parser
-Version: 0.2.31
+Version: 0.2-32
 Section: utils
 Priority: extra
 Architecture: amd64
