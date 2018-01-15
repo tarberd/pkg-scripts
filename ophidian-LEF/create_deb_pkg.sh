@@ -5,18 +5,27 @@ ROOT=$(pwd)
 SRCROOT=$ROOT/LEF
 PKGROOT=$ROOT/$PKGNAME\_$PKGVERSION
 
+LICENCE_DIR=$PKGROOT/usr/share/doc/DEF
+
 cd $SRCROOT
 git submodule update --init
 make clean
 make CXXFLAGS="-fPIC" all
 
 mkdir $PKGROOT
+mkdir $PKGROOT/DEBIAN
 mkdir $PKGROOT/usr
-cp -r $SRCROOT/bin $PKGROOT/usr
-cp -r $SRCROOT/lib $PKGROOT/usr
-cp -r $SRCROOT/include $PKGROOT/usr
+mkdir $PKGROOT/usr/bin
+mkdir $PKGROOT/usr/lib
+mkdir $PKGROOT/usr/include
 
-cp -r $ROOT/DEBIAN $PKGROOT
+install -D -o root -g root -m 644 $ROOT/DEBIAN/control $PKGROOT/DEBIAN
+
+install -D -o root -g root -m 644 $SRCROOT/bin/* $PKGROOT/usr/bin
+install -D -o root -g root -m 644 $SRCROOT/lib/* $PKGROOT/usr/lib
+install -D -o root -g root -m 644 $SRCROOT/include/* $PKGROOT/usr/include
+
+install -D -o root -g root -m 644 $SRCROOT/LICENSE.TXT $LICENCE_DIR/copyright
 
 dpkg-deb --build $PKGROOT
 
