@@ -1,11 +1,11 @@
 PKGNAME="ophidian-LEF"
-PKGVERSION="5.8-2"
+PKGVERSION="5.8-3"
 
 ROOT=$(pwd)
 SRCROOT=$ROOT/LEF
 PKGROOT=$ROOT/$PKGNAME\_$PKGVERSION
 
-LICENCE_DIR=$PKGROOT/usr/share/doc/DEF
+LICENCE_DIR=$PKGROOT/usr/share/doc/LEF
 
 cd $SRCROOT
 git submodule update --init
