@@ -13,3 +13,6 @@
 [submodule "ophidian-Flute/Flute"]
 	path = ophidian-Flute/Flute
 	url = https://gitlab.com/eclufsc/Flute
+[submodule "ophidian/ophidian"]
+	path = ophidian/ophidian
+	url = https://gitlab.com/eclufsc/ophidian.git

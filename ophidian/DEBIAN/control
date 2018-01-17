@@ -1,0 +1,10 @@
+Package: ophidian
+Version: 0.1-1
+Section: utils
+Priority: extra
+Architecture: amd64
+Depends: libstdc++6, libc6, liblemon-dev, ophidian-def, ophidian-lef, ophidian-flute, ophidian-verilog-parser, ophidian-units 
+Source: ophidian
+Homepage: https://gitlab.com/eclufsc/ophidian
+Maintainer: Bernardo Ferrari Mendonca <bernardo.mferrari@gmail.com>
+Description: Open-Source C++ Library for Physical Design Research and Teaching.
