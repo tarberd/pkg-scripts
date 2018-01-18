@@ -16,3 +16,6 @@
 [submodule "ophidian/ophidian"]
 	path = ophidian/ophidian
 	url = https://gitlab.com/eclufsc/ophidian.git
+[submodule "liblemon-dev/Lemon"]
+	path = liblemon-dev/Lemon
+	url = https://gitlab.com/eclufsc/Lemon.git

@@ -1,0 +1,10 @@
+Package: liblemon-dev
+Version: 1.3.1
+Section: utils
+Priority: extra
+Architecture: amd64
+Depends: libc6, libgcc1, libstdc++6
+Source: ophidian
+Homepage: https://gitlab.com/eclufsc/ophidian
+Maintainer: Bernardo Ferrari Mendonca <bernardo.mferrari@gmail.com>
+Description: Open-Source C++ Library for Physical Design Research and Teaching.
