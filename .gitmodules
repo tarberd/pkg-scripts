@@ -9,7 +9,7 @@
 	url = https://gitlab.com/eclufsc/verilog-parser.git
 [submodule "ophidian-units/units"]
 	path = ophidian-units/units
-	url = git@gitlab.com:eclufsc/units.git
+	url = https://gitlab.com/eclufsc/units.git
 [submodule "ophidian-Flute/Flute"]
 	path = ophidian-Flute/Flute
 	url = https://gitlab.com/eclufsc/Flute
