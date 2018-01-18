@@ -18,8 +18,12 @@ cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_L
 make DESTDIR=$PKGROOT install
 cd .. && rm -rf build
 
+mv $PKGROOT/usr/lib/libemon.a $PKGROOT/usr/lib/liblemon.a
+mv $PKGROOT/usr/lib/libemon.so $PKGROOT/usr/lib/liblemon.so
+mv $PKGROOT/usr/lib/libemon.so.1.3.1 $PKGROOT/usr/lib/liblemon.so.1.3.1
+
 cp -r $ROOT/DEBIAN $PKGROOT
 
 dpkg-deb --build $PKGROOT
 
-#rm -rf $PKGROOT
+rm -rf $PKGROOT
