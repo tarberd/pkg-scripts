@@ -1,5 +1,5 @@
 PKGNAME="ophidian"
-PKGVERSION="0.1-2"
+PKGVERSION="0.1-5"
 
 ROOT=$(pwd)
 SRCROOT=$ROOT/ophidian
