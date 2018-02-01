@@ -1,0 +1,13 @@
+Source: def
+Maintainer: Bernardo Ferrari Mendonca <bernardo.mferrari@gmail.com>
+Section: misc
+Priority: optional
+Standards-Version: 4.1.1
+Build-Depends: debhelper (>= 9), libz-dev, libbison-dev, flex
+
+Package: def
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Homepage: https://projects.si2.org/openeda.si2.org/projects/lefdefnew/
+Description: Cadence's DEF parser library and headers.
+ Cadence's DEF parser library and headers for embedded design automation.

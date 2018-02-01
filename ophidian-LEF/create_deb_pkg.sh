@@ -1,32 +1,61 @@
-PKGNAME="ophidian-LEF"
-PKGVERSION="5.8-3"
+set -e
 
-ROOT=$(pwd)
-SRCROOT=$ROOT/LEF
-PKGROOT=$ROOT/$PKGNAME\_$PKGVERSION
+CURRENT_DIR=$(pwd)
+SCRIPT=$(readlink -f "$0")
+SCRIPT_DIR=$(dirname "$SCRIPT")
 
-LICENCE_DIR=$PKGROOT/usr/share/doc/LEF
+FILES=$SCRIPT_DIR/pkg_files
 
-cd $SRCROOT
-git submodule update --init
-make clean
-make CXXFLAGS="-fPIC" all
+echo "Running script: ${SCRIPT}"
 
-mkdir $PKGROOT
-mkdir $PKGROOT/DEBIAN
-mkdir $PKGROOT/usr
-mkdir $PKGROOT/usr/bin
-mkdir $PKGROOT/usr/lib
-mkdir $PKGROOT/usr/include
+PKG_NAME="lef"
+PKG_VERSION="5.8"
+PKG_REVISION="1"
 
-install -D -o root -g root -m 644 $ROOT/DEBIAN/control $PKGROOT/DEBIAN
+SOURCE_DIR_NAME=$PKG_NAME-$PKG_VERSION
 
-install -D -o root -g root -m 644 $SRCROOT/bin/* $PKGROOT/usr/bin
-install -D -o root -g root -m 644 $SRCROOT/lib/* $PKGROOT/usr/lib
-install -D -o root -g root -m 644 $SRCROOT/include/* $PKGROOT/usr/include
+GIT_URL="http://gitlab.com/eclufsc/LEF.git"
+SOURCE_DIR=$SCRIPT_DIR/$SOURCE_DIR_NAME
+git clone $GIT_URL $SOURCE_DIR
 
-install -D -o root -g root -m 644 $SRCROOT/LICENSE.TXT $LICENCE_DIR/copyright
+PKG_DIR=$SCRIPT_DIR/pkg
+PKG_SOURCE_DIR=$PKG_DIR/$SOURCE_DIR_NAME
 
-dpkg-deb --build $PKGROOT
+TAR_NAME=$PKG_NAME\_$PKG_VERSION.orig.tar.gz
+TAR_FILE=$PKG_DIR/$TAR_NAME
 
-rm -rf $PKGROOT
+LICENSE_FILE=$SOURCE_DIR/LICENSE.TXT
+
+# Create pkg dir
+install -d $PKG_DIR
+
+cd $SCRIPT_DIR
+tar czf $TAR_FILE $SOURCE_DIR_NAME 
+
+cd $PKG_DIR
+tar xzf $TAR_NAME
+
+PKG_DEBIAN_DIR=$PKG_SOURCE_DIR/debian
+install -d $PKG_DEBIAN_DIR
+install -d $PKG_DEBIAN_DIR/source
+
+# write the debian/control file
+install -D $FILES/control $PKG_DEBIAN_DIR/control
+
+# write the debian/rules file
+install -D $FILES/rules $PKG_DEBIAN_DIR/rules
+
+# install debian license
+touch $PKG_DEBIAN_DIR/copyright
+cat $LICENSE_FILE > $PKG_DEBIAN_DIR/copyright
+
+# compatibilit level ?
+touch $PKG_DEBIAN_DIR/compat
+echo "10" > $PKG_DEBIAN_DIR/compat
+
+touch $PKG_DEBIAN_DIR/source/format
+echo "3.0 (quilt)" > $PKG_DEBIAN_DIR/source/format
+
+cd $PKG_SOURCE_DIR
+dch --create -v $PKG_VERSION-$PKG_REVISION --package $PKG_NAME
+debuild -us -uc 

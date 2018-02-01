@@ -1,0 +1,17 @@
+#!/usr/bin/make -f
+
+override_dh_auto_build:
+	make CXXFLAGS="-fPIC -O3 -w" all
+
+override_dh_auto_install:
+	install -d debian/def
+	install -d debian/def/usr
+	install -d debian/def/usr/bin
+	install -d debian/def/usr/lib
+	install -d debian/def/usr/include
+	install -D -m 644 bin/* debian/def/usr/bin
+	install -D -m 644 lib/* debian/def/usr/lib
+	install -D -m 644 include/* debian/def/usr/include
+
+%:
+	dh $@
